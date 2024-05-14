@@ -1,5 +1,5 @@
 <p align="center">  
-<img width="312" alt="image" src="https://github.com/mjj111/Make-SpringMVC/assets/86913355/eb9911be-e3ee-49d4-bd0c-7d77d1331b1c">
+<img width="312" alt="spring" src="https://github.com/mjj111/Self-SpringMVC/assets/86913355/9947edcb-d352-4600-b165-249e681dc563">
 </p>
 
 # Make-SpringMVC
