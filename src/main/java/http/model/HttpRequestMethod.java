@@ -1,4 +1,4 @@
-package model;
+package http.model;
 
 public enum HttpRequestMethod {
     POST("POST"), GET("GET"), PATCH("PATCH"), DELETE("DELETE");

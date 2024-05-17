@@ -1,8 +1,10 @@
-import controller.Controller;
+package http;
+
+import http.controller.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import view.request.HttpRequest;
-import view.response.HttpResponse;
+import http.view.request.HttpRequest;
+import http.view.response.HttpResponse;
 
 import java.io.*;
 import java.net.Socket;

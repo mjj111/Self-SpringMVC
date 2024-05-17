@@ -1,9 +1,9 @@
-package controller;
+package http.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import view.request.HttpRequest;
-import view.response.HttpResponse;
+import http.view.request.HttpRequest;
+import http.view.response.HttpResponse;
 
 public class UserListController extends AbstractController {
     private static final Logger log = LoggerFactory.getLogger(UserListController.class);

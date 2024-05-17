@@ -1,4 +1,4 @@
-package view.response;
+package http.view.response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

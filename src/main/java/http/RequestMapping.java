@@ -1,6 +1,8 @@
-import controller.Controller;
-import controller.CreateUserController;
-import controller.UserListController;
+package http;
+
+import http.controller.Controller;
+import http.controller.CreateUserController;
+import http.controller.UserListController;
 
 import java.util.HashMap;
 import java.util.Map;

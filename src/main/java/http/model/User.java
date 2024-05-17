@@ -1,4 +1,4 @@
-package model;
+package http.model;
 
 public class User {
     private final String userId;

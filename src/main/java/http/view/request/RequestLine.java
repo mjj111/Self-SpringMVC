@@ -1,9 +1,9 @@
-package view.request;
+package http.view.request;
 
-import model.HttpRequestMethod;
+import http.model.HttpRequestMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import util.HttpRequestUtils;
+import http.util.HttpRequestUtils;
 
 import java.util.HashMap;
 import java.util.Map;
