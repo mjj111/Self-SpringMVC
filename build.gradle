@@ -1,11 +1,9 @@
 plugins {
     id 'java'
-    id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
-    id 'org.beryx.jlink' version '2.24.1'
+    id "idea"
 }
 
-group 'com.example'
+group 'self.spring.mvc'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -16,27 +14,29 @@ ext {
     junitVersion = '5.8.1'
 }
 
-sourceCompatibility = '17'
-targetCompatibility = '17'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-application {
-    mainModule = 'com.example.selfspringmvc'
-    mainClass = 'com.example.selfspringmvc.HelloApplication'
-}
-
-javafx {
-    version = '17.0.1'
-    modules = ['javafx.controls', 'javafx.fxml']
-}
-
 dependencies {
-    //Log
+    // Log
     implementation 'ch.qos.logback:logback-classic:1.4.1'
     implementation 'org.slf4j:slf4j-api:2.0.3'
+
+    //Servlet
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+
+    // Tomcat
+    implementation "org.apache.tomcat.embed:tomcat-embed-core:10.1.13"
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper:10.1.13"
+    implementation "org.apache.commons:commons-lang3:3.13.0"
+
+    //Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -46,14 +46,15 @@ test {
     useJUnitPlatform()
 }
 
-jlink {
-    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-    launcher {
-        name = 'app'
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir file("src/main/webapp/WEB-INF/classes")
     }
 }
 
-jlinkZip {
-    group = 'distribution'
+sourceSets {
+    main {
+        java.outputDir = file('src/main/webapp/WEB-INF/classes')
+    }
 }
