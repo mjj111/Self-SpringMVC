@@ -1,4 +1,4 @@
-package com;
+package spring.web;
 
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;

@@ -1,6 +1,6 @@
 package http.controller;
 
-import http.model.User;
+import spring.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import http.view.request.HttpRequest;
