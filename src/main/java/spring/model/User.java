@@ -1,4 +1,4 @@
-package http.model;
+package spring.model;
 
 public class User {
     private final String userId;
