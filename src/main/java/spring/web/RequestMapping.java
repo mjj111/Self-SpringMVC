@@ -1,9 +1,10 @@
-package spring.mvc;
+package spring.web;
 
-import spring.contorller.CreatUserController;
-import spring.contorller.UserListController;
+import client.contorller.CreatUserController;
+import client.contorller.UserListController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spring.mvc.controller.Controller;
 
 import java.util.HashMap;
 import java.util.Map;
