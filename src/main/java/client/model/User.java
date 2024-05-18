@@ -1,4 +1,4 @@
-package spring.model;
+package client.model;
 
 public class User {
     private final String userId;
@@ -14,6 +14,22 @@ public class User {
         this.password = password;
         this.name = name;
         this.email = email;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override
