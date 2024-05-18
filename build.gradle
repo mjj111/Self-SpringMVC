@@ -34,6 +34,9 @@ dependencies {
     implementation "org.apache.tomcat.embed:tomcat-embed-jasper:10.1.13"
     implementation "org.apache.commons:commons-lang3:3.13.0"
 
+    //Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
