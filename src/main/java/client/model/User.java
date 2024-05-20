@@ -1,5 +1,7 @@
 package client.model;
 
+import client.controller.dto.CreatUserDto;
+
 public class User {
     private final String userId;
     private final String password;
@@ -14,6 +16,13 @@ public class User {
         this.password = password;
         this.name = name;
         this.email = email;
+    }
+
+    public static User from(final CreatUserDto creatUserDto) {
+        return new User(creatUserDto.userId(),
+                creatUserDto.password(),
+                creatUserDto.name(),
+                creatUserDto.email());
     }
 
     public String getUserId() {
