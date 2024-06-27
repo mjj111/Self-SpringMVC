@@ -1,44 +1,46 @@
 package client.controller;
 
-import client.model.User;
+import client.controller.dto.CreatUserDto;
+import client.domain.User;
+import client.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import spring.mvc.annotation.Controller;
 import spring.mvc.annotation.RequestMapping;
-import spring.mvc.controller.AbstractController;
-import spring.mvc.handler.mapping.RequestMethod;
+import spring.mvc.web.handler.mapping.RequestMethod;
 import spring.mvc.view.ModelAndView;
 
+import java.util.List;
+
 @Controller
-public class UserController extends AbstractController {
+public class UserController {
 
-    @RequestMapping("/users")
-    public ModelAndView getUsers(HttpServletRequest request, HttpServletResponse response) {
-        int wannaSize = Integer.parseInt(request.getParameter("size"));
+    private final UserService userService;
 
-        ModelAndView modelAndView = jsonView();
-        for(int i = 0; i < wannaSize; i++) {
-            User newUser = new User(String.valueOf(i),
-                    "tmpPassword",
-                    i + "김명준",
-                    "skatks1016@gmail.com");
-
-            modelAndView.addObject("user"+ i, newUser);
-        }
-
-        return modelAndView;
+    public UserController(final UserService userService) {
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/users/create", method = RequestMethod.POST)
     public ModelAndView create(HttpServletRequest request, HttpServletResponse response) {
-        User user = new User(request.getParameter("userId"),
-                request.getParameter("password"),
-                request.getParameter("name"),
-                request.getParameter("email"));
+        CreatUserDto requestDto = CreatUserDto.of(request);
+        User user = userService.createUser(requestDto);
 
-        ModelAndView modelAndView = jsonView();
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", user);
+        return modelAndView;
+    }
 
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public ModelAndView getUsers(HttpServletRequest request, HttpServletResponse response) {
+        int wannaSize = Integer.parseInt(request.getParameter("size"));
+        List<User> users = userService.getUsersWithSize(wannaSize);
+
+        ModelAndView modelAndView = new ModelAndView();
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            modelAndView.addObject("user"+ i, user);
+        }
         return modelAndView;
     }
 }
