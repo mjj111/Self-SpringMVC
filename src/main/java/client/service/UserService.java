@@ -1,9 +1,9 @@
 package client.service;
 
 import client.controller.dto.CreatUserDto;
-import client.model.User;
-import client.repsotiroy.UserRepository;
-import spring.mvc.annotation.Service;
+import client.domain.User;
+import client.domain.repsotiroy.UserRepository;
+import spring.ioc.annotation.Service;
 
 import java.util.List;
 
@@ -17,8 +17,7 @@ public class UserService {
 
     public User createUser(final CreatUserDto creatUserDto) {
         User user = User.from(creatUserDto);
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     public List<User> getUsersWithSize(final int wannaSize) {

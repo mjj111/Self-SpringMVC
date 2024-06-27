@@ -8,8 +8,8 @@ public class ModelAndView {
     private View view;
     private Map<String, Object> model = new HashMap<>();
 
-    public ModelAndView(View view) {
-        this.view = view;
+    public ModelAndView() {
+        this.view = new JsonView();
     }
 
     public ModelAndView addObject(String attributeName, Object attributeValue) {

@@ -4,12 +4,10 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public record CreatUserDto(String name,
                            String password,
-                           String email,
-                           String userId) {
+                           String email) {
     public static CreatUserDto of(final HttpServletRequest request) {
         return new CreatUserDto(request.getParameter("name"),
                 request.getParameter("password"),
-                request.getParameter("email"),
-                request.getParameter("userId"));
+                request.getParameter("email"));
     }
 }
